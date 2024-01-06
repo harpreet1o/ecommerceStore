@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        700: "700px",
+      },
+    },
     fontFamily: {
       ubuntu: ["Ubuntu", "sans-serif"],
       inter: ["Inter", "sans-serif"],

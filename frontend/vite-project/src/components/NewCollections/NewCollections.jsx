@@ -4,7 +4,7 @@ import { Items } from "../Item/Items";
 
 export const NewCollections = () => {
   return (
-    <div className="flex flex-col items-center gap-3 h-5/6 p-12">
+    <div className="flex flex-col items-center gap-3 mb-24 p-12">
       <h1 className="text-5xl font-semibold text-slate-700">NEW COLLECTIONS</h1>
       <hr className="w-52 h-2 rounded-xl bg-slate-900" />
       <div className="grid grid-cols-4 mt-12 gap-7">
