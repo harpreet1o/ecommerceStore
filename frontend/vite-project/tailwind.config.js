@@ -5,6 +5,10 @@ export default {
     extend: {
       width: {
         700: "700px",
+        580: "580px",
+      },
+      height: {
+        600: "600px",
       },
     },
     fontFamily: {
