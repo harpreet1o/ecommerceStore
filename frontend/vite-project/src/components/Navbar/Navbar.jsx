@@ -1,10 +1,14 @@
 import logo from "../assets/logo.png";
 import cartIcon from "../assets/cart_icon.png";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
 
 export const Navbar = () => {
   const [menu, setMenu] = useState("Shop");
+  const { cartItems } = useContext(ShopContext);
+  const sumCart = (obj) => Object.values(obj).reduce((a, b) => a + b, 0);
+  const sumValues = sumCart(cartItems);
 
   return (
     <div className="flex justify-around p-4 shadow">
@@ -76,7 +80,7 @@ export const Navbar = () => {
         </Link>
 
         <div className="flex h-5 w-5 justify-center items-center -mt-8 -ml-14 rounded-xl text-sm bg-red-500 text-white">
-          0
+          {sumValues}
         </div>
       </div>
     </div>
