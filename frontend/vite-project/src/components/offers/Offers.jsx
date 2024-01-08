@@ -11,7 +11,7 @@ export const Offers = () => {
         <p className="text-slate-700 text-2xl font-semibold">
           ONLY ON BEST SELLERS PRODUCTS
         </p>
-        <button className="w-72 h-16 rounded-3xl bg-red-400 border-none text-white text-2xl text-medium mt-7 cursor-pointer">
+        <button className="w-72 h-16 rounded-3xl bg-red-400 border-none text-white text-2xl font-medium mt-7 cursor-pointer">
           Check Now
         </button>
       </div>

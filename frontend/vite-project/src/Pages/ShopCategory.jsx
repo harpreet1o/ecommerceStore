@@ -10,7 +10,7 @@ export const ShopCategory = (props) => {
       <img src={props.banner} alt="" className="block my-8 mx-auto w-5/6 " />
       <div className="flex mx-40 justify-between items-center">
         <p>
-          <span className="text-semibold">Showing 1-12</span> out of 36 products
+          <span className="font-semibold">Showing 1-12</span> out of 36 products
         </p>
         <div className="px-4 py-2 rounded-3xl border-solid border-2 border-slate-600 flex items-center gap-1">
           Sort by <img src={dropdownIcon} alt="" />
@@ -32,7 +32,7 @@ export const ShopCategory = (props) => {
           } else return;
         })}
       </div>
-      <div className="flex justify-center items-center my-36 mx-auto w-60 h-16 rounded-3xl bg-slate-100 text-gray-500 text-medium ">
+      <div className="flex justify-center items-center my-36 mx-auto w-60 h-16 rounded-3xl bg-slate-100 text-gray-500 font-medium ">
         Explore More
       </div>
     </div>

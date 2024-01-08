@@ -3,7 +3,7 @@ import React from "react";
 export const NewsLettter = () => {
   return (
     <div className="w-4/6 h-2/5 flex flex-col items-center justify-center m-auto p-20 mb-40 bg-gradient-to-b from-red-200 to-white gap-7">
-      <h1 className="text-slate-500 text-4xl text-semibold">
+      <h1 className="text-slate-500 text-4xl font-semibold">
         {" "}
         Get Exclusive Ofers On Your Email
       </h1>
