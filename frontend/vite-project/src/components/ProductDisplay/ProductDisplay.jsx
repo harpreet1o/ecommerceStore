@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import starIcon from "../assets/star_icon.png";
 import stardullIcon from "../assets/star_dull_icon.png";
+import { ShopCategory } from "../../Pages/ShopCategory";
+import { ShopContext } from "../../Context/ShopContext";
 
 export const ProductDisplay = (props) => {
-  console.log(props);
-
+  const { addToCart } = useContext(ShopContext);
   return (
     <div className="flex mx-40">
       <div className="flex gap-16">
         <div className="flex flex-col gap-4">
-          <img src={props.product.image} alt="" className="" />
+          <img src={props.product.image} alt="" className="h-40" />
           <img src={props.product.image} alt="" className="h-40" />
           <img src={props.product.image} alt="" className="h-40" />
           <img src={props.product.image} alt="" className="h-40" />
@@ -17,7 +18,7 @@ export const ProductDisplay = (props) => {
         </div>
 
         <div>
-          <img src={props.product.image} alt="" className="w-580 h-auto" />
+          <img src={props.product.image} alt="" className=" w-auto h-full" />
         </div>
       </div>
       <div className="mx-16 flex flex-col">
@@ -59,9 +60,14 @@ export const ProductDisplay = (props) => {
             </div>
           </div>
         </div>
-        <buttton className="p-3 w-40 font-semibold text-white bg-red-500 mb-10 border-none outline-none cursor-pointer ">
+        <button
+          className="p-3 w-40 font-semibold text-white bg-red-500 mb-10 border-none outline-none cursor-pointer "
+          onClick={() => {
+            addToCart(props.product.id);
+          }}
+        >
           ADD TO CART
-        </buttton>
+        </button>
         <p className="mt-2">
           <span className="font-semibold">Catergory:</span> Women, T-Shirt, Crop
           Top

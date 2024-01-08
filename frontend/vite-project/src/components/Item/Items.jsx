@@ -4,7 +4,7 @@ export const Items = (props) => {
   return (
     <div className="w-84  hover:scale-105 hover:duration-700">
       <Link to={`/product/${props.id}`}>
-        <img src={props.image} alt="" />
+        <img onClick={window.scrollTo(0, 0)} src={props.image} alt="" />
       </Link>
       <p className=" my-2">{props.name}</p>
       <div className="flex gap-5">
