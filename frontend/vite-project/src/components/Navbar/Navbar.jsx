@@ -12,10 +12,15 @@ export const Navbar = () => {
 
   return (
     <div className="flex justify-around p-4 shadow">
-      <div className="flex items-center gap-2.5">
-        <img src={logo} alt="" />
-        <p className="text-gray-800 text-4xl font-semibold">SHOPPER</p>
-      </div>
+      <Link to="/">
+        <div className="flex items-center gap-2.5">
+          <img src={logo} alt="" />
+
+          <p className="text-gray-800 text-4xl font-semibold cursor-pointer">
+            SHOPPER
+          </p>
+        </div>
+      </Link>
 
       <ul className="flex items-center gap-12 text-gray-500 text-xl font-medium">
         <li

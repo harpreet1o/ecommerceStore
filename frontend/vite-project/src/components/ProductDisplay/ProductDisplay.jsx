@@ -10,15 +10,15 @@ export const ProductDisplay = (props) => {
     <div className="flex mx-40">
       <div className="flex gap-16">
         <div className="flex flex-col gap-4">
-          <img src={props.product.image} alt="" className="h-40" />
-          <img src={props.product.image} alt="" className="h-40" />
-          <img src={props.product.image} alt="" className="h-40" />
-          <img src={props.product.image} alt="" className="h-40" />
-          <img src={props.product.image} alt="" className="h-40" />
+          <img src={props.product.image} alt="" className="" />
+          <img src={props.product.image} alt="" className="" />
+          <img src={props.product.image} alt="" className="" />
+          <img src={props.product.image} alt="" className="" />
+          <img src={props.product.image} alt="" className="" />
         </div>
 
         <div>
-          <img src={props.product.image} alt="" className=" w-auto h-full" />
+          <img src={props.product.image} alt="" className="h-full w-full" />
         </div>
       </div>
       <div className="mx-16 flex flex-col">
