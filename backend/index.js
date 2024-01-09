@@ -101,6 +101,21 @@ app.post("/addproduct", async (req, res) => {
     name: req.body.name,
   });
 });
+// creating api for deleting products
+app.post("/removeproduct", async (req, res) => {
+  await Product.findOneAndDelete({ id: req.body.id });
+  console.log("removed");
+  res.json({
+    successs: 1,
+    name: req.body.name,
+  });
+});
+//creating api for getting all products
+app.get("/allproducts", async (req, res) => {
+  let products = await Product.find({});
+  console.log("all product fetched");
+  res.send(products);
+});
 
 app.listen(port, (error) => {
   if (!error) console.log(`Server running on ${port}`);
