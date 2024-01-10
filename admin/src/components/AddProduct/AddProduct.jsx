@@ -25,7 +25,33 @@ export const AddProduct = () => {
 
     let formData = new FormData();
     formData.append("product", image);
-    await fetch("http");
+    await fetch("http://localhost:3000/upload", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        responseData = data;
+      });
+    if (responseData.success) {
+      product.image = responseData.image_url;
+      console.log(product);
+      await fetch("http://localhost:3000/addproduct", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      })
+        .then((res) => res.json())
+        .then((data) =>
+          data.success ? alert("product is added") : alert("failed")
+        );
+    }
   };
   return (
     <div className="w-full max-w-800 px-12 py-8 my-5 mx-7 rounded-sm bg-white ">

@@ -9,6 +9,9 @@ export default {
       fontSize: {
         800: "800px",
       },
+      height: {
+        740: "740px",
+      },
     },
   },
   plugins: [],
