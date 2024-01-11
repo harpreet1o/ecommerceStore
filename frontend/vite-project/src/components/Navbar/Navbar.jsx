@@ -73,12 +73,25 @@ export const Navbar = () => {
         </li>
       </ul>
       <div className="flex items-center gap-11">
-        <Link to="/login">
-          {" "}
-          <button className=" w-40 h-12 outline-none border-2 border-solid border-gray-400 text-gray-800 text-xl font-medium rounded-3xl bg-white cursor-pointer active:bg-slate-200">
-            Login
+        {localStorage.getItem("auth-token") ? (
+          <button
+            className=" w-40 h-12 outline-none border-2 border-solid border-gray-400 text-gray-800 text-xl font-medium rounded-3xl bg-white cursor-pointer active:bg-slate-200"
+            onClick={() => {
+              localStorage.removeItem("auth-token");
+              window.location.replace("/ ");
+            }}
+          >
+            Logout
           </button>
-        </Link>
+        ) : (
+          <Link to="/login">
+            {" "}
+            <button className=" w-40 h-12 outline-none border-2 border-solid border-gray-400 text-gray-800 text-xl font-medium rounded-3xl bg-white cursor-pointer active:bg-slate-200">
+              Login
+            </button>
+          </Link>
+        )}
+
         <Link to="/cart">
           {" "}
           <img src={cartIcon} alt="" />

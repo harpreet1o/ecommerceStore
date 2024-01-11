@@ -46,6 +46,9 @@ app.post("/upload", upload.single("product"), (req, res) => {
 // Schema for Creating Products
 
 const Product = mongoose.model("Product", {
+  id: {
+    type: Number,
+  },
   name: {
     type: String,
     required: true,
@@ -85,8 +88,9 @@ app.post("/addproduct", async (req, res) => {
   } else {
     id = 1;
   }
+  console.log(id);
   const product = new Product({
-    id: req.body.id,
+    id: id,
     name: req.body.name,
     image: req.body.image,
     category: req.body.category,
@@ -114,6 +118,7 @@ app.post("/removeproduct", async (req, res) => {
 app.get("/allproducts", async (req, res) => {
   let products = await Product.find({});
   console.log("all product fetched");
+
   res.send(products);
 });
 // Schema creating for user Model
@@ -133,9 +138,10 @@ app.post("/signup", async (req, res) => {
       success: false,
       error: "Existing user found with same Email",
     });
-    let cart = {};
-    for (let i = 0; i < 300; i++) cart[i] = 0;
   }
+  let cart = {};
+  for (let i = 0; i < 300; i++) cart[i] = 0;
+
   const user = new Users({
     name: req.body.username,
     email: req.body.email,
@@ -170,6 +176,39 @@ app.post("/login", async (req, res) => {
   } else res.json({ succes: false, error: "Wrong Email Id " });
 });
 
+//creating endpoint for new collection data
+app.get("/newcollection", async (req, res) => {
+  let product = await Product.find({});
+  let newcollection = product.slice(1).slice(-8);
+  res.send(newcollection);
+});
+//creating endpoint for popular in women section
+app.get("/popularinwomen", async (req, res) => {
+  let product = await Product.find({ category: "women" });
+  let popularWomen = product.slice(0, 4);
+  console.log(popularWomen);
+  console.log("hi");
+  res.send(popularWomen);
+});
+
+//creating middleware to fetch user
+const fetchUser = async (req, res, next) => {
+  const token = req.header("auth-token");
+  if (!token) {
+    res.status(401).send({ error: "please authenticate using valid token" });
+  } else {
+    try {
+      const data = jwt.verify(token, "secret-ecom");
+      req.user = data.user;
+      next();
+    } catch (error) {
+      res.status(401).send({ error: "please authenticate using valid token" });
+    }
+  }
+};
+app.post("/cart", async (req, res) => {
+  console.log(req.body);
+});
 app.listen(port, (error) => {
   if (!error) console.log(`Server running on ${port}`);
   else console.log(`${error} error`);

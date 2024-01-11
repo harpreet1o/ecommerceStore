@@ -8,6 +8,7 @@ import { RelatedProduct } from "../components/RelatedProducts.jsx/RelatedProduct
 
 export const Product = () => {
   const { allProduct } = useContext(ShopContext);
+  console.log(allProduct);
 
   const { productId } = useParams();
   const product = allProduct.find((e) => {

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const LoginSignup = () => {
   const [state, setState] = useState("Login");
   const [formData, setformData] = useState({
-    usename: "",
+    username: "",
     password: "",
     email: "",
   });
@@ -11,9 +11,9 @@ export const LoginSignup = () => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
   const login = async () => {
-    console.log("log");
     let responseData;
-    await fetch("http://localhost:3000/signup", {
+    await fetch("http://localhost:3000/login", {
+      method: "POST",
       headers: {
         Accept: "application/form-data",
         "Content-Type": "application/json",
@@ -23,11 +23,31 @@ export const LoginSignup = () => {
       .then((response) => response.json())
       .then((data) => (responseData = data));
     if (responseData.success) {
-      localStorage.s;
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.error);
     }
   };
   const signup = async () => {
     console.log("sign");
+    let responseData;
+    await fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        Accept: "application/form-data",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => (responseData = data));
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.error);
+    }
   };
   return (
     <div className="w-full h-4/5 bg-pink-50 pt-20">

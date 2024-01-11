@@ -5,6 +5,7 @@ import { ShopCategory } from "../../Pages/ShopCategory";
 import { ShopContext } from "../../Context/ShopContext";
 
 export const ProductDisplay = (props) => {
+  console.log(props);
   const { addToCart } = useContext(ShopContext);
   return (
     <div className="flex mx-40">
