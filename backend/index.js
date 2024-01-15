@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const port = 3000;
+const port = 3001;
 
 const app = express();
 app.use(express.json());
@@ -154,6 +154,8 @@ app.post("/signup", async (req, res) => {
       id: user.id,
     },
   };
+  console.log(data);
+
   const token = jwt.sign(data, "secret_ecom");
   res.json({ success: true, token });
 });
@@ -168,6 +170,8 @@ app.post("/login", async (req, res) => {
           id: user.id,
         },
       };
+      console.log(data);
+
       const token = jwt.sign(data, "secret_ecom");
       res.json({ success: true, token });
     } else {
