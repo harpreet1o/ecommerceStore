@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const port = 3001;
+const port = 3000;
 
 const app = express();
 app.use(express.json());
@@ -107,6 +107,7 @@ app.post("/addproduct", async (req, res) => {
 });
 // creating api for deleting products
 app.post("/removeproduct", async (req, res) => {
+  console.log(req.body.id);
   await Product.findOneAndDelete({ id: req.body.id });
   console.log("removed");
   res.json({

@@ -12,13 +12,14 @@ export const ListProduct = () => {
     fetchInfo();
   }, []);
   const removeProduct = async (id) => {
+    console.log(id);
     await fetch("http://localhost:3000/removeproduct", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        body: JSON.stringify({ id: id }),
       },
+      body: JSON.stringify({ id: id }),
     });
     await fetchInfo();
   };
