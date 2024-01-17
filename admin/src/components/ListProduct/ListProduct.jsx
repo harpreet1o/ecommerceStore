@@ -12,7 +12,6 @@ export const ListProduct = () => {
     fetchInfo();
   }, []);
   const removeProduct = async (id) => {
-    console.log(id);
     await fetch("http://localhost:3000/removeproduct", {
       method: "POST",
       headers: {
