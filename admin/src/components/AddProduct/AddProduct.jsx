@@ -35,6 +35,7 @@ export const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         responseData = data;
+        console.log(responseData);
       });
     if (responseData.success) {
       product.image = responseData.image_url;
@@ -62,7 +63,7 @@ export const AddProduct = () => {
           type="text"
           name="name"
           placeholder="Type here"
-          className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-200 font-poppins"
+          className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-600 font-poppins"
           onChange={changeHandler}
         />
       </div>
@@ -75,7 +76,7 @@ export const AddProduct = () => {
             type="text"
             name="old_price"
             placeholder="type here"
-            className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-200 font-poppins"
+            className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-600 font-poppins"
           />
         </div>
         <div className="w-100 text-gray-500">
@@ -86,7 +87,7 @@ export const AddProduct = () => {
             type="text"
             name="new_price"
             placeholder="type here"
-            className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-200 font-poppins"
+            className="box-border w-100 h-12 rounded-sm pl-4 border-solid border-gray-50 border-2 ouline-none text-slate-600 font-poppins"
           />
         </div>
       </div>
