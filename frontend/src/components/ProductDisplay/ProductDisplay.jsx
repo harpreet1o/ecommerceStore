@@ -10,13 +10,13 @@ export const ProductDisplay = (props) => {
   return (
     <div className="flex mx-40">
       <div className="flex gap-16">
-        <div className="flex flex-col gap-4">
+        {/* <div className="flex flex-col gap-4">
           <img src={props.product.image} alt="" className="" />
           <img src={props.product.image} alt="" className="" />
           <img src={props.product.image} alt="" className="" />
           <img src={props.product.image} alt="" className="" />
           <img src={props.product.image} alt="" className="" />
-        </div>
+        </div> */}
 
         <div>
           <img src={props.product.image} alt="" className="h-full w-full" />
